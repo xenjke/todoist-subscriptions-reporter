@@ -27,7 +27,7 @@ That will create a task, that we can work with:
 ## Installation
 
 ```
-git clone xenjke/todoist-subscriptions-reporter
+gh repo clone xenjke/todoist-subscriptions-reporter
 cd todoist-subscriptions-reporter
 npm i
 ```
