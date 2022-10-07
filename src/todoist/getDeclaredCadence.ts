@@ -6,10 +6,12 @@ export function getDeclaredCadence(task: Task): SupportedPeriods {
   if (!due) {
     throw "No due found in task";
   }
-  switch (due.string) {
-    case "every month":
+  switch (true) {
+    case /every month/.test(due.string):
       return "MONTHLY";
-    case "yearly":
+    case /every month|every .\d*/.test(due.string):
+      return "MONTHLY";
+    case /yearly/.test(due.string):
       return "YEARLY";
     default:
       console.error(`Unsupported cadence: ${due.string}`);

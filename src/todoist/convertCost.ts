@@ -1,7 +1,10 @@
+import { SupportedCurrencies } from "./types/SupportedCurrencies";
+import { SupportedPeriods } from "./types/SupportedPeriods";
+
 export function convertCost(
-  declaredCurrency: string,
-  declaredPrice: void,
-  declaredCadence: string | undefined
+  declaredCurrency: SupportedCurrencies,
+  declaredPrice: number,
+  declaredCadence: string
 ): number {
   throw new Error("Function not implemented.");
 }

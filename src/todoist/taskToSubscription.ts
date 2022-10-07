@@ -7,8 +7,8 @@ import { SubscriptionEntry } from "./types/SubscriptionEntry";
 
 export const parseTask = (task: Task): SubscriptionEntry => {
   console.debug(`Parsing task: ${JSON.stringify(task)}`);
-  const declaredCurrency = getDeclaredCurrency(task);
-  const declaredPrice = getDeclaredPrice(task);
+  const declaredCurrency = getDeclaredCurrency(task.description);
+  const declaredPrice = getDeclaredPrice(task.description);
   const declaredCadence = getDeclaredCadence(task);
 
   return {
