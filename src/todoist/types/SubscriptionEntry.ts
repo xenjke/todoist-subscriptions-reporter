@@ -1,6 +1,6 @@
-import { ConvertedCost } from "./ConvertedCost";
-import { SupportedCurrencies } from "./SupportedCurrencies";
-import { TodoistDue } from "./TodoistDue";
+import type { ConvertedCost } from './ConvertedCost';
+import type { SupportedCurrencies } from './SupportedCurrencies';
+import type { TodoistDue } from './TodoistDue';
 
 export type SubscriptionEntry = {
   convertedCost: ConvertedCost;

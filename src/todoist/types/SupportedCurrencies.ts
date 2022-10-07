@@ -1,1 +1,1 @@
-export type SupportedCurrencies = "USD" | "EUR" | "RUB" | "GBP";
+export type SupportedCurrencies = 'USD' | 'EUR' | 'RUB' | 'GBP';

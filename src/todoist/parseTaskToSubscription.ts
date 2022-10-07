@@ -1,9 +1,9 @@
-import { Task } from "@doist/todoist-api-typescript";
-import { convertCost } from "./convertCost";
-import { getDeclaredCadence } from "./getDeclaredCadence";
-import { getDeclaredCurrency } from "./getDeclaredCurrency";
-import { getDeclaredPrice } from "./getDeclaredPrice";
-import { SubscriptionEntry } from "./types/SubscriptionEntry";
+import type { Task } from '@doist/todoist-api-typescript';
+import { convertCost } from './convertCost';
+import { getDeclaredCadence } from './getDeclaredCadence';
+import { getDeclaredCurrency } from './getDeclaredCurrency';
+import { getDeclaredPrice } from './getDeclaredPrice';
+import type { SubscriptionEntry } from './types/SubscriptionEntry';
 
 export const parseTaskToSubscription = (task: Task): SubscriptionEntry => {
   const declaredCurrency = getDeclaredCurrency(task.description);

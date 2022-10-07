@@ -1,5 +1,5 @@
-import { SupportedCurrencies } from "./SupportedCurrencies";
-import { SupportedPeriods } from "./SupportedPeriods";
+import type { SupportedCurrencies } from './SupportedCurrencies';
+import type { SupportedPeriods } from './SupportedPeriods';
 
 export type ConvertedCost = {
   value: number;

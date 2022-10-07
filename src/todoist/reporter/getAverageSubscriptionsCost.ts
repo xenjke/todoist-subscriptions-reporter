@@ -1,6 +1,6 @@
-import { SubscriptionEntry } from "../types/SubscriptionEntry";
-import { SupportedCurrencies } from "../types/SupportedCurrencies";
-import { SupportedPeriods } from "../types/SupportedPeriods";
+import type { SubscriptionEntry } from '../types/SubscriptionEntry';
+import type { SupportedCurrencies } from '../types/SupportedCurrencies';
+import type { SupportedPeriods } from '../types/SupportedPeriods';
 
 export const getAverageSubscriptionsCost = (
   subscriptions: SubscriptionEntry[],

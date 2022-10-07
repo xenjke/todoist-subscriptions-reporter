@@ -1,15 +1,15 @@
-import { getDeclaredPrice } from "../../src/todoist/getDeclaredPrice";
+import { getDeclaredPrice } from '../../src/todoist/getDeclaredPrice';
 
-describe("#getDeclaredPrice", () => {
+describe('#getDeclaredPrice', () => {
   const testCases = [
-    ["0", 0],
-    ["1", 1],
-    ["1,1", 1.1],
-    ["1.1", 1.1],
-    ["0.1", 0.1],
-    ["100,1", 100.1],
-    ["99", 99],
-    ["£5", 5],
+    ['0', 0],
+    ['1', 1],
+    ['1,1', 1.1],
+    ['1.1', 1.1],
+    ['0.1', 0.1],
+    ['100,1', 100.1],
+    ['99', 99],
+    ['£5', 5],
   ];
   testCases.forEach((testCase) => {
     const [incomingString, expectedNumber] = testCase;
@@ -21,6 +21,6 @@ describe("#getDeclaredPrice", () => {
   });
 
   it("should throw when can't parse", () => {
-    expect(() => getDeclaredPrice("")).toThrow();
+    expect(() => getDeclaredPrice('')).toThrow();
   });
 });

@@ -1,5 +1,4 @@
-import { Task } from "@doist/todoist-api-typescript";
-import { SupportedCurrencies } from "./types/SupportedCurrencies";
+import type { SupportedCurrencies } from './types/SupportedCurrencies';
 
 export function getDeclaredCurrency(description: string): SupportedCurrencies {
   const currencyMatches = description.match(/\$|£|RUB|EUR|Р|P|₽/);
@@ -7,21 +6,22 @@ export function getDeclaredCurrency(description: string): SupportedCurrencies {
     throw `Bad or unsupported currency found: ${description}`;
   }
   switch (currencyMatches[0]) {
-    case "$":
-      return "USD";
-    case "EUR":
-      return "EUR";
-    case "£":
-      return "GBP";
-    case "RUB":
-      return "RUB";
-    case "Р":
-      return "RUB";
-    case "P":
-      return "RUB";
-    case "₽":
-      return "RUB";
+    case '$':
+      return 'USD';
+    case 'EUR':
+      return 'EUR';
+    case '£':
+      return 'GBP';
+    case 'RUB':
+      return 'RUB';
+    case 'Р':
+      return 'RUB';
+    case 'P':
+      return 'RUB';
+    case '₽':
+      return 'RUB';
     default:
-      throw `Bad or unsupported currency found: ${currencyMatches}`;
+      console.error(`Bad or unsupported currency found: ${description}`);
+      throw `Bad or unsupported currency found`;
   }
 }

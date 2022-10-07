@@ -1,15 +1,16 @@
-import { ConvertedCost } from "./types/ConvertedCost";
-import { SupportedCurrencies } from "./types/SupportedCurrencies";
-import { SupportedPeriods } from "./types/SupportedPeriods";
+import type { ConvertedCost } from './types/ConvertedCost';
+import type { SupportedCurrencies } from './types/SupportedCurrencies';
+import type { SupportedPeriods } from './types/SupportedPeriods';
 
 export function convertCost(
   declaredCurrency: SupportedCurrencies,
   declaredPrice: number,
   declaredCadence: SupportedPeriods
 ): ConvertedCost {
-  const baseCurrency = "GBP";
-  const basePeriod = "MONTHLY";
+  const baseCurrency = 'GBP';
+  const basePeriod = 'MONTHLY';
 
+  // eslint-disable-next-line functional/no-let
   let cost = declaredPrice;
 
   // check if matching the base period
@@ -35,10 +36,10 @@ export function convertCostPeriodFromTo(
   if (basePeriod === declaredCadence) {
     return cost;
   }
-  if (declaredCadence === "YEARLY" && basePeriod === "MONTHLY") {
+  if (declaredCadence === 'YEARLY' && basePeriod === 'MONTHLY') {
     return cost / 12;
   }
-  if (declaredCadence === "HALF_YEARLY" && basePeriod === "MONTHLY") {
+  if (declaredCadence === 'HALF_YEARLY' && basePeriod === 'MONTHLY') {
     return cost / 6;
   }
   console.error(`Can't convert ${declaredCadence} to ${basePeriod}`);

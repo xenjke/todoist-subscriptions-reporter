@@ -1,5 +1,4 @@
-import type { Task, TodoistApi } from "@doist/todoist-api-typescript";
-import { TodoistTask } from "./types/TodoistTask";
+import type { Task, TodoistApi } from '@doist/todoist-api-typescript';
 
 export const getProjectEntities = async (
   api: TodoistApi,

@@ -1,15 +1,15 @@
 export type TodoistTask = {
   id: string;
-  assignerId: any;
-  assigneeId: any;
+  assignerId: unknown;
+  assigneeId: unknown;
   projectId: string;
-  sectionId: any;
-  parentId: any;
+  sectionId: unknown;
+  parentId: unknown;
   order: number;
   content: string;
   description: string;
   isCompleted: boolean;
-  labels: Array<any>;
+  labels: Array<unknown>;
   priority: number;
   commentCount: number;
   creatorId: string;
