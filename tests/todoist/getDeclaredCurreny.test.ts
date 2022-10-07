@@ -8,6 +8,7 @@ describe("#getDeclaredCurrency", () => {
     ["RUB", "RUB"],
     ["$", "USD"],
     ["EUR", "EUR"],
+    ["₽", "RUB"],
   ];
   testCases.forEach((testCase) => {
     const [incomingString, expectedCurrency] = testCase;

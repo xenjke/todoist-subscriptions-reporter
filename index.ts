@@ -1,4 +1,5 @@
 import { getProjectTaskAsSubscriptions } from "./src/todoist/getProjectTaskAsSubscriptions";
+import { getAverageSubscriptionsCost } from "./src/todoist/reporter/getAverageSubscriptionsCost";
 
 const TOKEN = process.env.API_TOKEN;
 if (!TOKEN) {
@@ -10,5 +11,12 @@ if (!SUBSCRIPTIONS_PROJECT_NAME) {
 }
 
 getProjectTaskAsSubscriptions(TOKEN, SUBSCRIPTIONS_PROJECT_NAME)
-  .then(console.log)
+  .then((subscriptions) => {
+    const averages = getAverageSubscriptionsCost(
+      subscriptions,
+      "MONTHLY",
+      "GBP"
+    );
+    console.log(averages);
+  })
   .catch(console.error);

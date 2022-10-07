@@ -1,6 +1,6 @@
 import { getProjectEntities } from "./getProjectEntries";
 import { getTodoistAPI } from "./getTodoistApi";
-import { parseTask } from "./taskToSubscription";
+import { parseTaskToSubscription } from "./parseTaskToSubscription";
 import { SubscriptionEntry } from "./types/SubscriptionEntry";
 
 export const getProjectTaskAsSubscriptions = async (
@@ -11,5 +11,5 @@ export const getProjectTaskAsSubscriptions = async (
     getTodoistAPI(token),
     projectName
   );
-  return projectTasks.map(parseTask);
+  return projectTasks.map(parseTaskToSubscription);
 };

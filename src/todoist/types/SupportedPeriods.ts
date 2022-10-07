@@ -1,1 +1,1 @@
-export type SupportedPeriods = "MONTHLY" | "YEARLY";
+export type SupportedPeriods = "MONTHLY" | "YEARLY" | "HALF_YEARLY";

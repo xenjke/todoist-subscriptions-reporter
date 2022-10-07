@@ -1,11 +1,12 @@
-import { ReportedCost } from "./ReportedCost";
+import { ConvertedCost } from "./ConvertedCost";
 import { SupportedCurrencies } from "./SupportedCurrencies";
-import { SupportedPeriods } from "./SupportedPeriods";
+import { TodoistDue } from "./TodoistDue";
 
 export type SubscriptionEntry = {
-  period: SupportedPeriods;
-  cost: ReportedCost;
-  originalCurrency: SupportedCurrencies;
+  convertedCost: ConvertedCost;
   name: string;
+  originalCost: string;
+  originalCurrency: SupportedCurrencies;
+  originalDue?: TodoistDue;
   todoistId: string;
 };

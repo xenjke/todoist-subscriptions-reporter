@@ -5,17 +5,21 @@ import { getDeclaredCurrency } from "./getDeclaredCurrency";
 import { getDeclaredPrice } from "./getDeclaredPrice";
 import { SubscriptionEntry } from "./types/SubscriptionEntry";
 
-export const parseTask = (task: Task): SubscriptionEntry => {
-  console.debug(`Parsing task: ${JSON.stringify(task)}`);
+export const parseTaskToSubscription = (task: Task): SubscriptionEntry => {
   const declaredCurrency = getDeclaredCurrency(task.description);
   const declaredPrice = getDeclaredPrice(task.description);
   const declaredCadence = getDeclaredCadence(task);
 
   return {
     name: task.content,
-    cost: convertCost(declaredCurrency, declaredPrice, declaredCadence),
-    period: declaredCadence,
-    todoistId: task.id,
+    convertedCost: convertCost(
+      declaredCurrency,
+      declaredPrice,
+      declaredCadence
+    ),
+    originalCost: task.description,
     originalCurrency: declaredCurrency,
+    originalDue: task.due,
+    todoistId: task.id,
   };
 };

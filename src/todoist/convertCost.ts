@@ -1,21 +1,16 @@
+import { ConvertedCost } from "./types/ConvertedCost";
 import { SupportedCurrencies } from "./types/SupportedCurrencies";
 import { SupportedPeriods } from "./types/SupportedPeriods";
 
 export function convertCost(
   declaredCurrency: SupportedCurrencies,
   declaredPrice: number,
-  declaredCadence: string
-): [number, "GBP", "MONTHLY"] {
+  declaredCadence: SupportedPeriods
+): ConvertedCost {
   const baseCurrency = "GBP";
   const basePeriod = "MONTHLY";
 
   let cost = declaredPrice;
-
-  const rates = {
-    usd: 0.9,
-    eur: 1,
-    rub: 0.07,
-  };
 
   // check if matching the base period
   if (declaredCadence !== basePeriod) {
@@ -23,26 +18,49 @@ export function convertCost(
     cost = convertCostPeriodFromTo(cost, declaredCadence, basePeriod);
   }
 
-  // check if matching the base currency
-  if (declaredCurrency !== baseCurrency) {
-    cost = convertCostCurrencyFromTo(cost, declaredCurrency, baseCurrency);
-  }
+  cost = convertCostCurrencyFromTo(cost, declaredCurrency, baseCurrency);
 
-  return [cost, baseCurrency, basePeriod];
+  return {
+    value: cost,
+    currency: baseCurrency,
+    period: basePeriod,
+  };
 }
 
-function convertCostPeriodFromTo(
+export function convertCostPeriodFromTo(
   cost: number,
-  declaredCadence: string,
-  basePeriod: string
+  declaredCadence: SupportedPeriods,
+  basePeriod: SupportedPeriods
 ): number {
-  return cost;
+  if (basePeriod === declaredCadence) {
+    return cost;
+  }
+  if (declaredCadence === "YEARLY" && basePeriod === "MONTHLY") {
+    return cost / 12;
+  }
+  if (declaredCadence === "HALF_YEARLY" && basePeriod === "MONTHLY") {
+    return cost / 6;
+  }
+  console.error(`Can't convert ${declaredCadence} to ${basePeriod}`);
+  throw `Can't yet convert periods`;
 }
 
-function convertCostCurrencyFromTo(
+export function convertCostCurrencyFromTo(
   cost: number,
   declaredCurrency: string,
-  baseCurrency: string
+  baseCurrency: SupportedCurrencies
 ): number {
-  return cost;
+  const baseCurrencyRates: { [key: string]: number } = {
+    USD: 0.89,
+    EUR: 1,
+    RUB: 68.92,
+  };
+  if (declaredCurrency === baseCurrency) {
+    return cost;
+  }
+  const hasRate = baseCurrencyRates[declaredCurrency];
+  if (!hasRate) {
+    throw `Don't have rates for ${declaredCurrency}`;
+  }
+  return cost / baseCurrencyRates[declaredCurrency];
 }
