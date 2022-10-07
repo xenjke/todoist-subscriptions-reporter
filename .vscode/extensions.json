@@ -1,0 +1,17 @@
+{
+  "recommendations": [
+    "bibhasdn.unique-lines",
+    "cschleiden.vscode-github-actions",
+    "dbaeumer.vscode-eslint",
+    "eamodio.gitlens",
+    "editorconfig.editorconfig",
+    "esbenp.prettier-vscode",
+    "kisstkondoros.vscode-codemetrics",
+    "mike-co.import-sorter",
+    "orta.vscode-jest",
+    "Orta.vscode-jest",
+    "ryanluker.vscode-coverage-gutters",
+    "stevencl.addDocComments",
+    "streetsidesoftware.code-spell-checker"
+  ]
+}

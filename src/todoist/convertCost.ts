@@ -51,6 +51,7 @@ export function convertCostCurrencyFromTo(
   declaredCurrency: string,
   baseCurrency: SupportedCurrencies
 ): number {
+  // TODO: fetch currencies
   const baseCurrencyRates: { [key: string]: number } = {
     USD: 0.89,
     EUR: 1,

@@ -1,4 +1,3 @@
 {
-  "cSpell.words": ["datetime", "todoist"],
   "jest.jestCommandLine": "npm test --"
 }

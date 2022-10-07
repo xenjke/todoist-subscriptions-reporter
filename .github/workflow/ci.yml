@@ -1,0 +1,21 @@
+name: Node.js CI
+
+on:
+  push:
+    branches:
+      - main
+  pull_request:
+
+jobs:
+  build-lint-test:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v3
+      - uses: ./.github/actions/install
+      - run: npm run build
+      - run: npm run lint
+      - name: unit-tests
+        run: npm test
+        env:
+          RUNTIME_ENVIRONMENT: ci
+      - name: unit-tests-coverage
