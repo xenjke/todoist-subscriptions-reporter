@@ -12,5 +12,6 @@
     "Todoist",
     "tsbuildinfo",
     "xenjke"
-  ]
+  ],
+  "ignorePaths": ["./.vscode/**/*"]
 }
