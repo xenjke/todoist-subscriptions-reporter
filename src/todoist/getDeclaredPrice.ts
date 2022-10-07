@@ -6,6 +6,5 @@ export function getDeclaredPrice(description: string): number {
     console.error(`Failed to parse ${description} as a price`);
     throw `Price parsing error`;
   }
-  console.debug(justNumbers);
   return parseFloat(justNumbers[0]);
 }
